@@ -15,12 +15,18 @@ $base_url = '';
     <![endif]-->
     <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js" type="text/javascript"></script>
-    <script type='text/javascript' src='static/js/knockout2.js'></script>
+    <script type='text/javascript' src='../../static/js/knockout2.js'></script>
 </head>
 <body>
     <header> <!-- HTML5 header tag -->
     	<div id="headercontainer">
-    	<span data-bind="text: title">
+    	<div>
+    	<span data-bind="text: idy"></span>
+    	</div>
+    	<span data-bind="text: name"></span>
+    	<span data-bind="html: description"></span>
+        <span data-bind="text: ga"></span>
+        <span data-bind="text: dateadded"></span>
     	</div>
     </header>
     <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
@@ -44,8 +50,13 @@ $base_url = '';
 	</script>
 	
 	<script ype='text/javascript'>	
+		
+		var  localurl = 'http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/site/?id=5';
+	var devurl = 'http://totemws.phpfogapp.com/index.php/cms/cms/site/?id=5';
+	
+		
 		$.ajax({
-  			url: "http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/search/?id=1",
+  			url: devurl,
   				success: function(data){
  					setView(data);
 				}
@@ -54,10 +65,16 @@ $base_url = '';
 		function setView(obj)
 		{
 			var parsed = JSON.parse(obj);
-						console.log(parsed);
+			console.log(parsed);
 
 			var viewModel = {
-			title: parsed.title 
+			idy: parsed[0].id, 
+			name: parsed[0].name, 
+			description: parsed[0].desc, 
+			ga: parsed[0].gaid, 
+			dateadded: parsed[0].dateadded 
+
+			
     	}
 		ko.applyBindings(viewModel);
 		}
