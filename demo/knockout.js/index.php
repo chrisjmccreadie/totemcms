@@ -82,7 +82,7 @@ jQuery.getJSON(devurl+"&callback=?", function(data) {
 		{
 
 			//console.log(obj);
-			alert(obj[1].test1);
+			//alert(obj[1].test1);
 			//var parsed = JSONP.parse(obj);
 			//console.log(parsed);
 			var viewModel = {
