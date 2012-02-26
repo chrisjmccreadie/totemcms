@@ -55,24 +55,22 @@ $base_url = '';
 	var devurl = 'http://totemws.phpfogapp.com/index.php/cms/cms/site/?id=5';
 	
 		
-		$.ajax({
-  			url: devurl,
-  				success: function(data){
- 					setView(data);
-				}
-		});
+		jQuery.getJSON(devurl+"&callback=?", function(data) {
+        console.log(data);
+        setView(data);
+});
 		
 		function setView(obj)
 		{
-			var parsed = JSON.parse(obj);
-			console.log(parsed);
+		//	var parsed = JSON.parse(obj);
+			//console.log(parsed);
 
 			var viewModel = {
-			idy: parsed[0].id, 
-			name: parsed[0].name, 
-			description: parsed[0].desc, 
-			ga: parsed[0].gaid, 
-			dateadded: parsed[0].dateadded 
+			idy: obj[0].id, 
+			name: obj[0].name, 
+			description: obj[0].desc, 
+			ga: obj[0].gaid, 
+			dateadded: obj[0].dateadded 
 
 			
     	}
