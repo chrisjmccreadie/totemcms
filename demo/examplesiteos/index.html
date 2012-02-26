@@ -4,6 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>:: Out Sanctum ::</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js" type="text/javascript"></script>
+
+    <script type='text/javascript' src='../../static/js/knockout2.js'></script>
+
 </head>
 <body>
 <!---background container starts-->
@@ -41,9 +45,8 @@
     <div class="contentContainer">
       <!---column1 container starts-->
       <div class="column1">
-        <h1>Outer<br />
-          Sanctum</h1>
-        <div class="headingIntro">The creative spirit in event production, and brand partnerships</div>
+        <h1><span data-bind="html: header"></h1>
+        <div class="headingIntro"><span data-bind="html: strapline"></div>
       </div>
       <!---column1 container ends-->
     </div>
@@ -56,9 +59,7 @@
     <div class="contentContainer">
       <!---column1 container starts-->
       <div class="column1">
-        <p>Since 19 xxx Outer Sanctum has been helping businesses globally engage with their target audiences. While our roots are in music, our clients also include international banks, automotive, fashion houses, beauty, technology companies, galleries, high profile individuals, and many more.</p>
-        <p>Our work includes conferences, music festivals, product launches, awards ceremonies, brand partnerships, talent endorsement, sponsorship and great parties.</p>
-        <div class="moreButton"> <span><img src="images/button.png" alt="Find out more about os" title="Find out more about os" /></span> <a href="about-os.html" target="_self">Find out more about os</a></div>
+       <span data-bind="html: body">  <div class="moreButton"> <span><img src="images/button.png" alt="Find out more about os" title="Find out more about os" /></span> <a href="about-os.html" target="_self">Find out more about os</a></div>
       </div>
       <!---column1 container ends-->
     </div>
@@ -118,5 +119,31 @@
 <div class="lineBgBox">
   <div class="linesBg">&nbsp;</div>
 </div>
+
+
+	<script ype='text/javascript'>	
+			
+	var  localurl = 'http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/page/?id=14';
+	var devurl = 'http://totemws.phpfogapp.com/index.php/cms/cms/page/?id=14';
+	//use) a get to post a querystring value via HTTP GET to an asp.net webhandler
+	jQuery.getJSON(devurl+"&callback=?", function(data) {
+        console.log(data);
+        setView(data);
+	});
+	
+	function setView(obj)
+	{
+		console.log(obj[1].strapline);
+		var viewModel = {
+		header: obj[0].header,
+		strapline: obj[1].strapline,
+		body: obj[2].body
+		
+    }
+	ko.applyBindings(viewModel);
+	}
+
+	</script>
+
 </body>
 </html>
