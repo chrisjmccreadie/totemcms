@@ -66,12 +66,12 @@
 	var  localurl = 'http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/page/?id=12';
 	var devurl = 'http://totemws.phpfogapp.com/index.php/cms/cms/page/?id=12';
 	
-    $.ajax({
-  			url: devurl,
-  				success: function(data){
- 					setView(data);
-				}
-		});
+	alert('gsh');
+	$.getJSON(devurl, function(json) { //get information about the user usejquery from twitter api
+		alert(json);
+  });
+	
+   
 	
 		
 		function setView(obj)

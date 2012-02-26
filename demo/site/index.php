@@ -51,7 +51,7 @@ $base_url = '';
 	
 	<script ype='text/javascript'>	
 		
-		var  localurl = 'http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/site/?id=5';
+	var  localurl = 'http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/site/?id=5';
 	var devurl = 'http://totemws.phpfogapp.com/index.php/cms/cms/site/?id=5';
 	
 		
