@@ -66,23 +66,29 @@
 	var  localurl = 'http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/page/?id=12';
 	var devurl = 'http://totemws.phpfogapp.com/index.php/cms/cms/page/?id=12';
 	
-	alert('gsh');
-	$.getJSON(devurl, function(json) { //get information about the user usejquery from twitter api
-		alert(json);
-  });
+	//use) a get to post a querystring value via HTTP GET to an asp.net webhandler
+jQuery.getJSON(devurl+"&callback=?", function(data) {
+        console.log(data);
+        setView(data);
+});
+
+
+
 	
    
 	
 		
 		function setView(obj)
 		{
+
 			//console.log(obj);
-			var parsed = JSON.parse(obj);
-			console.log(parsed);
+			alert(obj[1].test1);
+			//var parsed = JSONP.parse(obj);
+			//console.log(parsed);
 			var viewModel = {
-			test1: parsed[1].test1,
-			dum: parsed[2].dum,
-			suber: parsed[3].suber
+			test1: obj[1].test1,
+			dum: obj[2].dum,
+			suber: obj[3].suber
 
     	}
 		ko.applyBindings(viewModel);
