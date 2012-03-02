@@ -11,7 +11,7 @@ class totemcache
 {
 	
 	//vars
-	var $cachedir = '/var/fog/apps/1101/totemcms.phpfogapp.com/frontendtools/cache/';
+	var $cachedir = '/var/fog/apps/1101/totemcms.phpfogapp.com/demo/cacheexample/cache/';
 	var $cachetime = '24';
 	
 	/*
