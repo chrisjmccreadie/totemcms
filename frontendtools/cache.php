@@ -39,7 +39,7 @@ class totemcache
 			$go =  "http://www.totemcms.co/index.php/cms/cms/page/?id=".$value->id;
 			//print_r($value);
 			//$obj->meta;
-			$this->fetchPage($go, $value->meta);
+			$this->fetchPage($go, $value->meta.".json");
 		}
 		//echo "ddd".$str;
 	}
