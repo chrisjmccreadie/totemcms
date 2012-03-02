@@ -23,7 +23,7 @@ class totemcache
 		//now we have it we need to process it.
 		$myFile = $this->cachedir.$name;
 		echo $myFile;
-		$fh = fopen($myFile, 'x+');
+		$fh = fopen($myFile, 'r+');
 		fwrite($fh, $str);
 		fclose($fh);
 		//echo $str;
