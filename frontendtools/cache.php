@@ -11,7 +11,7 @@ class totemcache
 {
 	
 	//vars
-	var $cachedir = 'frontendtools/cache/';
+	var $cachedir = 'cache/';
 	var $cachetime = '24';
 	
 	/*
