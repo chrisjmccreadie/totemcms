@@ -73,7 +73,7 @@
 			success : function (data) 
 			{
 				console.log(data);
-				$('datatype').htnl = 'Served Local';
+				$('#datatype').htnl = 'Served Local';
 				//in some servers you can use the same setView function but others you need to use setviewLocal
 				//setView(data);
 				setViewLocal(data);
@@ -105,9 +105,6 @@
 	//set the vars.
 	function setView(obj)
 	{
-		var parsed = JSON.parse(obj);
-
-		alert(parsed);
 			var viewModel = {
 				test1: obj[1].test1,
 				dum: obj[2].dum,
