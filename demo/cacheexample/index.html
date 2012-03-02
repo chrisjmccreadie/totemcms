@@ -89,10 +89,10 @@
 	function setViewLocal(obj)
 	{
 		var parsed = JSON.parse(obj);
-console.log(parsed[1]);
+console.log(parsed[1].test1);
 console.log("pared"+parsed);
 			var viewModel = {
-				test1: parsed.test1,
+				test1: parsed[1].test1,
 				dum: obj[2].dum,
 				suber: obj[3].suber
     		}
