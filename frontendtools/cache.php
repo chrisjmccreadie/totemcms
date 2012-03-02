@@ -37,7 +37,7 @@ class totemcache
 		foreach ($obj as $value)
 		{
 			$go =  "http://www.totemcms.co/index.php/cms/cms/page/?id=".$value->id;
-			$print_r($value);
+			print_r($value);
 			//$obj->meta;
 			//$this->fetchPage($go, $row->meta);
 		}
