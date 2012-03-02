@@ -18,7 +18,7 @@
 <body>
     <header> <!-- HTML5 header tag -->
     	<div id="headercontainer">
-    	<h1>Knockout JS Example <div id='datatype'></div></h1>
+    	<h1>Cache Example using <div id='datatype'></div></h1>
     	<p>
     	This examples uses <a href='www.knocoutjs.com' targte='_blank'>knockout.js</a> to render the information. It first checks if there is a local copy 
     	of the file and if it has it loads it from local.  There is a helper function which will cache the JSON data for.  If there is a cache it will show
@@ -73,13 +73,15 @@
 			success : function (data) 
 			{
 				console.log(data);
-				$('#datatype').html("Cached version");
+				$('#datatype').html("Cached Data");
 				//in some servers you can use the same setView function but others you need to use setviewLocal
 				//setView(data);
 				setViewLocal(data);
 			},
 			error : function(data)
 			{
+								$('#datatype').html("Live Data");
+
 				jQuery.getJSON(remoteurl+"&callback=?", function(data) {
         	       console.log(data);
       		  		setView(data);	
