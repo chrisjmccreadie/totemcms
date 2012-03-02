@@ -18,11 +18,11 @@
 <body>
     <header> <!-- HTML5 header tag -->
     	<div id="headercontainer">
-    	<h1>Knockout JS Example</h1>
+    	<h1>Knockout JS Example <div id='datatype'></div></h1>
     	<p>
-    	This examples uses <a href='www.knocoutjs.com' targte='_blank'>knockout.js</a> to render the information.  A simple call is made to the 
-    	server and the results are binded to the knockout objects below. This method is very useful if you know what is being returned and you are quite strict 
-    	with you admin.
+    	This examples uses <a href='www.knocoutjs.com' targte='_blank'>knockout.js</a> to render the information. It first checks if there is a local copy 
+    	of the file and if it has it loads it from local.  There is a helper function which will cache the JSON data for.  If there is a cache it will show
+    	this saving you the time it takes to call the server.
     	</p>
     	<p>
     	Go to the <a href='http://totemws.phpfogapp.com/index.php/cms/admin/'>Admin Area</a> and click on the Knock out to see this information change.
@@ -73,6 +73,7 @@
 			success : function (data) 
 			{
 				console.log(data);
+				$('datatype').htnl = 'Served Local';
 				//in some servers you can use the same setView function but others you need to use setviewLocal
 				//setView(data);
 				setViewLocal(data);
