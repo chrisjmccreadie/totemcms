@@ -35,7 +35,8 @@ class totemcache
 		$obj = json_decode($str);
 		foreach ($obj as $value)
 		{
-			echo $value->call;
+			//echo "www.totemcms.co/".$value->call.$value->id;
+			$this->fetchPage("www.totemcms.co/".$value->call.$value->id, $row->meta);
 		}
 		//echo "ddd".$str;
 	}
