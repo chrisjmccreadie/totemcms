@@ -32,7 +32,12 @@ class totemcache
 	public function fetchSite($url)
 	{
 		$str = file_get_contents($url);
-		echo "ddd".$str;
+		$obj = json_decode($str);
+		foreach ($obj as $value)
+		{
+			echo $value->call;
+		}
+		//echo "ddd".$str;
 	}
 			
 	/*
