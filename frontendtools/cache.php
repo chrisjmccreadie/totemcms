@@ -37,7 +37,7 @@ class totemcache
 		foreach ($obj as $value)
 		{
 			echo "www.totemcms.co/".$value->call.$value->id;
-			$this->fetchPage("www.totemcms.co/".$value->call.$value->id, $row->meta);
+			//$this->fetchPage("www.totemcms.co/".$value->call.$value->id, $row->meta);
 		}
 		//echo "ddd".$str;
 	}
