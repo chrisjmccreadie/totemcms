@@ -73,7 +73,7 @@
 			success : function (data) 
 			{
 				console.log(data);
-				$('#datatype').htnl = 'Served Local';
+				$('#datatype').html("Cached version");
 				//in some servers you can use the same setView function but others you need to use setviewLocal
 				//setView(data);
 				setViewLocal(data);
