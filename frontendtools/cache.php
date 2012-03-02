@@ -22,7 +22,7 @@ class totemcache
 		$str = file_get_contents($url);
 		//now we have it we need to process it.
 		$myFile = $this->cachedir.$name;
-		echo $myFile;
+		//echo $myFile;
 		$fh = fopen($myFile, 'w+');
 		fwrite($fh, $str);
 		fclose($fh);
