@@ -72,10 +72,12 @@
 		url : localurl,
 			success : function (data) 
 			{
+				alert('in');
 				setView(data);
 			},
 			error : function(data)
 			{
+				alert('not in');
 				jQuery.getJSON(remoteurl+"&callback=?", function(data) {
         	       console.log(data);
       		  		setView(data);	
