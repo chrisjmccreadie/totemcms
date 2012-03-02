@@ -74,7 +74,7 @@
 			{
 				console.log(data);
 				//alert(data);
-				setView(data);
+				setViewLocal(data);
 			},
 			error : function(data)
 			{
@@ -85,6 +85,20 @@
 
 			}
 	});
+
+	function setViewLocal(obj)
+	{
+		var parsed = JSON.parse(obj);
+
+		alert(parsed.test1);
+			var viewModel = {
+				test1: parsed.test1,
+				dum: obj[2].dum,
+				suber: obj[3].suber
+    		}
+		ko.applyBindings(viewModel);
+	}
+
 
 	//set the vars.
 	function setView(obj)
