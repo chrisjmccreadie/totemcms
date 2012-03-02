@@ -11,7 +11,7 @@ class totemcache
 {
 	
 	//vars
-	var $cachedir = '/var/fog/apps/1101/totemcms.phpfogapp.com/frontendtools/cache';
+	var $cachedir = '/var/fog/apps/1101/totemcms.phpfogapp.com/frontendtools/';
 	var $cachetime = '24';
 	
 	/*
@@ -23,7 +23,7 @@ class totemcache
 		//now we have it we need to process it.
 		$myFile = $this->cachedir.$name;
 		echo $myFile;
-		$fh = fopen($myFile, 'w');
+		$fh = fopen($myFile, 'r+');
 		fwrite($fh, $str);
 		fclose($fh);
 		//echo $str;
