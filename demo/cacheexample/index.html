@@ -73,7 +73,8 @@
 			success : function (data) 
 			{
 				console.log(data);
-				//alert(data);
+				//in some servers you can use the same setView function but others you need to use setviewLocal
+				//setView(data);
 				setViewLocal(data);
 			},
 			error : function(data)
@@ -88,9 +89,9 @@
 
 	function setViewLocal(obj)
 	{
+		//we need to turn this to an json object as we are not using a JSONP format any more.
 		var parsed = JSON.parse(obj);
 		//console.log(parsed[1].test1);
-		//console.log("pared"+parsed);
 			var viewModel = {
 				test1: parsed[1].test1,
 				dum: parsed[2].dum,
