@@ -9,29 +9,19 @@ $url = "http://www.totemcms.co//index.php/cms/cms/page/?id=14";
 $str = file_get_contents($url);
 $data = json_decode($str);
 
-//get the menu using the site id
-$url = "http://www.totemcms.co/index.php/cms/cms/menu/?id=9";
-//$url = "http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/page/?id=14";
-//get the contents
-$str = file_get_contents($url);
-$menu = json_decode($str);
-$menuo ="<ul class=\"navigation\">";
-$sr = explode("/",$_SERVER['REQUEST_URI']);
-$name = $sr[count($sr)-1];
-foreach ($menu as $item)
+
+function getvalue($name,$data)
 {
-	//echo $name." : ".$item->url;
-		if ($name == $item->url)
-			$menuo = $menuo."<li><a href=\"$item->url\" target=\"_self\" id=\"selected\">$item->name</a></li>";
-		else	
-			$menuo = $menuo."<li><a href=\"$item->url\" target=\"_self\" id=\"\">$item->name</a></li>";
-	
+	foreach($data as $key=>$val)
+	{
+		print_r($val[$name]);
+		//echo 'in';
+		//echo $key.$val."dddd<br/>";
+		//echo $key." : ".$val;
+	}
+	exit;
 }
-$menuo = $menuo."</ul>";
-
-//print_r($menu);
-
-
+getvalue('header',$data[0]->pagedata);
 //example break dowm
 // $data[0]->pagedata[0]->body;
 //the first element of the data array contains all the data
@@ -63,9 +53,15 @@ $menuo = $menuo."</ul>";
     <div class="mainRightContainer">
       <!---menu container starts-->
       <div class="navigationContainer">
-     <?php
-     	echo $menuo;
-     ?>
+        <ul class="navigation">
+          <li><a href="index.html" target="_self" id="selected">HOME</a></li>
+          <li><a href="about-os.html" target="_self">ABOUT OS</a></li>
+          <li><a href="events.html" target="_self">EVENTS</a></li>
+          <li><a href="brand-partnerships.html" target="_self">BRAND PARTNERSHIPS</a></li>
+          <li><a href="clients.html" target="_self">CLIENTS</a></li>
+          <li><a href="news.html" target="_self">NEWS</a></li>
+          <li><a href="contact-os.html" target="_self">CONTACT OS</a></li>
+        </ul>
       </div>
       <!---menu container ends-->
       <!---quickcontact container starts-->
@@ -80,11 +76,8 @@ $menuo = $menuo."</ul>";
     <!---content container starts-->
     <div class="contentContainer">
       <!---column1 container starts-->
-     
       <div class="column1">
-      	 <h1>
-      <?php echo $data[0]->pagedata[0]->header; ?>
-      </h1>
+        <h1><?php echo getvalue('header'); ?></h1>
         <div class="headingIntro"><?php echo $data[0]->pagedata[1]->strapline; ?></div>
       </div>
       <!---column1 container ends-->
@@ -98,7 +91,7 @@ $menuo = $menuo."</ul>";
     <div class="contentContainer">
       <!---column1 container starts-->
       <div class="column1">
-       <?php echo $data[0]->pagedata[2]->body; ?>  <div class="moreButton"> <img src="images/button.png" alt="Find out more about os" title="Find out more about os" /></span> <a href="about-os.html" target="_self">Find out more about os</a></div>
+       <?php echo $data[0]->pagedata[2]->body; ?>  <div class="moreButton"> <span><img src="images/button.png" alt="Find out more about os" title="Find out more about os" /></span> <a href="about-os.html" target="_self">Find out more about os</a></div>
       </div>
       <!---column1 container ends-->
     </div>
