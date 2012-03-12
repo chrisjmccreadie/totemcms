@@ -21,7 +21,7 @@
     	<h1>Cache Example using <div id='datatype'></div></h1>
     	<p>
     	This examples uses <a href='www.knocoutjs.com' targte='_blank'>knockout.js</a> to render the information. It first checks if there is a local copy 
-    	of the file and if it has it loads it from local.  There is a helper function which will cache the JSON data for.  If there is a cache it will show
+    	of the file and if it has it loads it from local.  There is a helper function which will cache the JSON data for it.  If there is a cache it will show
     	this saving you the time it takes to call the server.
     	</p>
     	<p>
@@ -93,12 +93,12 @@
 	function setViewLocal(obj)
 	{
 		//we need to turn this to an json object as we are not using a JSONP format any more.
-		var parsed = JSON.parse(obj);
+//		var parsed = JSON.parse(obj);
 		//console.log(parsed[1].test1);
 			var viewModel = {
-				test1: parsed[1].test1,
-				dum: parsed[2].dum,
-				suber: parsed[3].suber
+				test1: obj[1].test1,
+				dum: obj[2].dum,
+				suber: obj[3].suber
     		}
 		ko.applyBindings(viewModel);
 	}
