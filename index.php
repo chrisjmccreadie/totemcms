@@ -1,6 +1,4 @@
-<?php
-$base_url = '';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- This is a demonstration of HTML5 goodness with healthy does of CSS3 mixed in -->
@@ -13,14 +11,12 @@ $base_url = '';
     <!--[if IE 7]>
     	<link rel="stylesheet" href="ie7.css" type="text/css" media="screen" />
     <![endif]-->
-    <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js" type="text/javascript"></script>
-    <script type='text/javascript' src='static/js/knockout2.js'></script>
-</head>
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" media="screen" />
+   </head>
 <body>
     <header> <!-- HTML5 header tag -->
     	<div id="headercontainer">
-    	<span data-bind="text: title">
+    	Welcome to the Totem CMS front end demos
     	</div>
     </header>
     <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
@@ -32,37 +28,7 @@ $base_url = '';
 		</footer>	
     </section>
     
-    <script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-		try {
-		var pageTracker = _gat._getTracker("UA-9207090-1");
-		pageTracker._trackPageview();
-		} catch(err) {}
-	</script>
-	
-	<script ype='text/javascript'>	
-		$.ajax({
-  			url: "http://localhost:8888/totemws/totemws.phpfogapp.com/index.php/cms/cms/search/?id=1",
-  				success: function(data){
- 					setView(data);
-				}
-		});
-		
-		function setView(obj)
-		{
-			var parsed = JSON.parse(obj);
-						console.log(parsed);
-
-			var viewModel = {
-			title: parsed.title 
-    	}
-		ko.applyBindings(viewModel);
-		}
-
-	</script>
+ 
     
 </body>
 

@@ -1,0 +1,18 @@
+Totem CMS
+18/5/2012
+Copyright Totem Software
+
+Introduction
+
+Totem CMS front end class. These classes work with the Totem CMS SAAS applicaiton.  www.totemcms.co it is open source and it always will be.
+
+Classes
+
+Totemcmsheader
+
+The main processing class
+
+TotemCache
+
+The cacheing class
+
