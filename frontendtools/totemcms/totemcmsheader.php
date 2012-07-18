@@ -62,6 +62,33 @@ function getName()
 	return($pname);
 }
 
+function getContentObjects($pageid)
+{
+	//This example shows how to get the data and statically put it into the website
+	//
+	//get the page.
+	//define the page to call here
+	$url = "http://www.totemcms.co//index.php/cms/cms/page/?id=$pageid";
+	//get the contents
+	$opts = array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n"));
+	$context = stream_context_create($opts);
+	$str = file_get_contents($url,false,$context);
+	//decode the json
+	$data = json_decode($str);
+	//return the  data
+	$data2 = $data[0]->pagedata;
+	foreach($data2 as $index=>$val){    
+		foreach($data2[$index] as $key => $value) {
+			$datafin[] = array('key' => $key,'value' =>$value);
+		}
+}
+	
+	
+	$dobj = (object) $datafin;
+	
+	return($dobj);
+}
+
 function getData($pageid)
 {
 	//This example shows how to get the data and statically put it into the website
