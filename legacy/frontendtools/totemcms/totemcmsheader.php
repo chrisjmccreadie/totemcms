@@ -15,6 +15,34 @@
 //>body;
 //example to see all the data
 //print_r($data[0]->pagedata[0]->Banner);
+class MojagRest
+{
+	var $url = 'http://www.mojag.co/index.php/rest/rest/';
+	
+	//This function get the outname and checks for that
+	function getContentObjectByOutputname($siteid,$counter=1)
+	{
+		//get the output name, it will return the last url part but you can override it.
+		$url = $_SERVER["PATH_INFO"];
+		$url2 = explode('/',$url);
+		$url3 = $url2[count($url2)-$counter];
+		//define the page to call here
+		$url = $this->url."pageoutputname?id=$siteid&on=$url3";
+		//get the contents
+		$opts = array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n"));
+		$context = stream_context_create($opts);
+		$str = file_get_contents($url,false,$context);
+		//decode the json
+		$data = json_decode($str);
+		//return the  data
+		$data2 = $data[0]->pagedata;
+		foreach($data2 as $index=>$val){    
+		foreach($data2[$index] as $key => $value) {
+			$datafin[] = array('key' => $key,'value' =>$value);
+		}
+	}
+	
+}
 
 function showCookie($siteid)
 {
@@ -61,6 +89,8 @@ function getName()
 	$pname = $pname[count($pname)-1];
 	return($pname);
 }
+
+
 
 function getContentObjects($pageid)
 {
